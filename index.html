@@ -411,25 +411,18 @@
 
     <div class="form-block">
       <div class="form-label">ACCESS — FIRST DROP</div>
-      <div class="form-row" id="formRow">
-        <input
-          type="email"
-          class="email-input"
-          id="emailInput"
-          placeholder="your@email.com"
-          autocomplete="off"
-          spellcheck="false"
-        >
-        <button class="submit-btn" onclick="handleSubmit()">ENTER →</button>
-      </div>
-      <div class="success-msg" id="successMsg">
-        ACCESS GRANTED.<br>
-        WE'LL FIND YOU WHEN IT'S READY.
-      </div>
-      <p class="form-note">
-        NO NEWSLETTERS. NO SPAM.<br>
-        ONE EMAIL. WHEN IT DROPS.
-      </p>
+      <form id="brandForm">
+        <input type="hidden" name="access_key" value="9d24657e-a635-4798-a201-248e141674b0">
+        <input type="hidden" name="subject" value="BRAND Waitlist">
+        <div class="form-row" id="formRow">
+          <input type="email" name="email" class="email-input" id="emailInput" placeholder="your@email.com" autocomplete="off" spellcheck="false" required>
+          <button type="submit" class="submit-btn">ENTER &rarr;</button>
+        </div>
+        <div class="success-msg" id="successMsg">
+          ACCESS GRANTED.<br>WE'LL FIND YOU WHEN IT'S READY.
+        </div>
+        <p class="form-note">NO NEWSLETTERS. NO SPAM.<br>ONE EMAIL. WHEN IT DROPS.</p>
+      </form>
     </div>
 
     <div class="footer">
@@ -446,16 +439,3 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       document.getElementById('formRow').style.borderColor = 'rgba(255,255,255,0.5)';
       input.focus();
-      return;
-    }
-    document.getElementById('formRow').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  }
-
-  document.getElementById('emailInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSubmit();
-  });
-</script>
-
-</body>
-</html>
